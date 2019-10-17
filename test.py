@@ -42,13 +42,27 @@
 #         print('correct !')
 #     else:
 #         print('wring !')
+import tkinter
+import random
 
-import tkinter as tk
-root = tk.Tk()
-root.title('my first canvas')
-canvas = tk.Canvas(root, width =1200, height=900)
+
+def click_btn():
+    label['text']=random.choice(['great', 'good', 'not so bad','bad'])
+    label.update()
+root = tkinter.Tk()
+root.title('fortune')
+root.resizable(False, False)
+
+width = 800
+height = 600
+canvas = tkinter.Canvas(root, width=width, height=height) 
 canvas.pack()
+img = tkinter.PhotoImage(file='cat.png')
+canvas.create_image(400, 300, image=img)
 
-img = tk.PhotoImage(file='cat.png')
-canvas.create_image(200,300, image=img)
+
+label = tkinter.Label(root, text='???', font=('Times New Roman', 120), bg='white')
+label.place(x=(width/10)*4, y=(height/10)*1)
+btn = tkinter.Button(root, text='dice fortune', font=('Times New Roman', 50), fg='skyblue', command=click_btn)
+btn.place(x=(width/10)*3, y=(height/10)*6)
 root.mainloop()

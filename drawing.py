@@ -1,0 +1,10 @@
+import tkinter
+root = tkinter.Tk()
+root.title('drawing shape')
+root.geometry('500x400')
+cvs = tkinter.Canvas(root, width = 500, height= 400, bg='white')
+cvs.pack()
+cvs.create_text(250, 25, text='strings', fill='green', font=('Times New Roman', 24))
+cvs.create_line(30, 30, 200, 300, fill='navy', width=5)
+cvs.create_rectangle(300, 300, 550, 550)
+cvs.mainloop()
